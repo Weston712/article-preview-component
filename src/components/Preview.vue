@@ -1,4 +1,24 @@
-<script></script>
+<script>
+import Popup from "./Popup.vue";
+import PopupPhoneVue from "./PopupPhone.vue";
+
+export default {
+  data() {
+    return {
+      message: "Test",
+      visible: false,
+      active: false,
+    };
+  },
+  methods: {
+    test() {},
+  },
+  components: {
+    Popup,
+    PopupPhoneVue,
+  },
+};
+</script>
 
 <template>
   <div class="container">
@@ -13,13 +33,13 @@
           got some simple tips to help you make any room feel complete.
         </p>
       </main>
-      <footer class="content__footer">
+      <footer v-if="visible ? false : true" class="content__footer">
         <img class="content__img" src="/public/avatar-michelle.jpg" alt="avatar" />
         <div class="content__name">
           <h4 class="content__name__header">Michelle Appleton</h4>
           <p class="content__name__data">28 Jun 2020</p>
         </div>
-        <span class="content__button">
+        <span v-on:click="visible = !visible" class="content__button">
           <svg xmlns="http://www.w3.org/2000/svg" width="15" height="13">
             <path
               fill="#6E8098"
@@ -28,6 +48,8 @@
           </svg>
         </span>
       </footer>
+      <PopupPhoneVue></PopupPhoneVue>
+      <Popup v-show="visible"></Popup>
     </article>
   </div>
 </template>
