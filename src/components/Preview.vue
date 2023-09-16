@@ -6,8 +6,8 @@ export default {
   data() {
     return {
       message: "Test",
-      visible: false,
-      active: false,
+      activePopupPhoneVue: false,
+      activePopup: false,
     };
   },
   methods: {
@@ -33,13 +33,13 @@ export default {
           got some simple tips to help you make any room feel complete.
         </p>
       </main>
-      <footer v-if="visible ? false : true" class="content__footer">
+      <footer class="content__footer">
         <img class="content__img" src="/public/avatar-michelle.jpg" alt="avatar" />
         <div class="content__name">
           <h4 class="content__name__header">Michelle Appleton</h4>
           <p class="content__name__data">28 Jun 2020</p>
         </div>
-        <span v-on:click="visible = !visible" class="content__button">
+        <span v-on:click="activePopup = !activePopup" class="content__button">
           <svg xmlns="http://www.w3.org/2000/svg" width="15" height="13">
             <path
               fill="#6E8098"
@@ -48,8 +48,8 @@ export default {
           </svg>
         </span>
       </footer>
-      <PopupPhoneVue></PopupPhoneVue>
-      <Popup v-show="visible"></Popup>
+      <PopupPhoneVue v-show="activePopupPhoneVue"></PopupPhoneVue>
+      <Popup v-show="activePopup"></Popup>
     </article>
   </div>
 </template>
