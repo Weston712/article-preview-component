@@ -6,8 +6,6 @@ export default {
   data() {
     return {
       message: "Test",
-      activePopupPhoneVue: false,
-      activePopup: false,
     };
   },
   methods: {
@@ -16,6 +14,11 @@ export default {
   components: {
     Popup,
     PopupPhoneVue,
+  },
+  props: {
+    activePopupPhoneVue: false,
+    activePopup: false,
+    activeContantFooter: true,
   },
 };
 </script>
@@ -33,24 +36,43 @@ export default {
           got some simple tips to help you make any room feel complete.
         </p>
       </main>
-      <footer class="content__footer">
+      <div class="content__footer">
         <img class="content__img" src="/public/avatar-michelle.jpg" alt="avatar" />
         <div class="content__name">
           <h4 class="content__name__header">Michelle Appleton</h4>
           <p class="content__name__data">28 Jun 2020</p>
         </div>
-        <span v-on:click="activePopup = !activePopup" class="content__button">
+        <button @click="activePopup = !activePopup" class="content__button">
           <svg xmlns="http://www.w3.org/2000/svg" width="15" height="13">
             <path
               fill="#6E8098"
               d="M15 6.495L8.766.014V3.88H7.441C3.33 3.88 0 7.039 0 10.936v2.049l.589-.612C2.59 10.294 5.422 9.11 8.39 9.11h.375v3.867L15 6.495z"
             />
           </svg>
-        </span>
-      </footer>
-      <PopupPhoneVue v-show="activePopupPhoneVue"></PopupPhoneVue>
+        </button>
+      </div>
+      <div
+        v-if="activePopupPhoneVue ? (activeContantFooter = true) : (activeContantFooter = false)"
+        v-show="activeContantFooter"
+        class="content__footer__phone"
+      >
+        <img class="content__img" src="/public/avatar-michelle.jpg" alt="avatar" />
+        <div class="content__name">
+          <h4 class="content__name__header">Michelle Appleton</h4>
+          <p class="content__name__data">28 Jun 2020</p>
+        </div>
+        <button @click="activePopup = !activePopup" class="content__button">
+          <svg xmlns="http://www.w3.org/2000/svg" width="15" height="13">
+            <path
+              fill="#6E8098"
+              d="M15 6.495L8.766.014V3.88H7.441C3.33 3.88 0 7.039 0 10.936v2.049l.589-.612C2.59 10.294 5.422 9.11 8.39 9.11h.375v3.867L15 6.495z"
+            />
+          </svg>
+        </button>
+      </div>
       <Popup v-show="activePopup"></Popup>
     </article>
+    <PopupPhoneVue v-show="(activePopupPhoneVue = !activePopupPhoneVue)"></PopupPhoneVue>
   </div>
 </template>
 
@@ -88,6 +110,7 @@ export default {
   align-items: center;
   margin-bottom: 10px;
 }
+
 .content__img {
   width: 15%;
   border-radius: 50%;
@@ -100,11 +123,15 @@ export default {
   width: 35px;
   height: 35px;
   border-radius: 50px;
+  border: none;
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: hsl(210, 46%, 95%);
   cursor: pointer;
+}
+.content__footer__phone {
+  display: none;
 }
 
 @media (max-width: 719px) {
@@ -112,6 +139,16 @@ export default {
     width: 100%;
     height: auto;
     display: inline-block;
+  }
+  .content__footer {
+    display: none;
+  }
+  .content__footer__phone {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 10px;
   }
   .img__1 {
     width: 100%;
