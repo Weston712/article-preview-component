@@ -2,7 +2,6 @@
 export default {
   data() {
     return {
-      active: false,
       containerPopupPhone: true,
     };
   },
@@ -37,7 +36,7 @@ export default {
         />
       </svg>
     </span>
-    <button v-on:click="test" class="popup__btn__phone">
+    <button v-on:click="containerPopupPhone = !containerPopupPhone" class="popup__btn__phone">
       <svg xmlns="http://www.w3.org/2000/svg" width="15" height="13">
         <path
           fill="#6E8098"

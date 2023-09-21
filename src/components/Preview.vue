@@ -51,17 +51,13 @@ export default {
           </svg>
         </button>
       </div>
-      <div
-        v-if="activePopupPhoneVue ? (activeContantFooter = true) : (activeContantFooter = false)"
-        v-show="activeContantFooter"
-        class="content__footer__phone"
-      >
+      <div v-if="!activePopupPhoneVue" class="content__footer__phone">
         <img class="content__img" src="/public/avatar-michelle.jpg" alt="avatar" />
         <div class="content__name">
           <h4 class="content__name__header">Michelle Appleton</h4>
           <p class="content__name__data">28 Jun 2020</p>
         </div>
-        <button @click="activePopup = !activePopup" class="content__button">
+        <button @click="activePopupPhoneVue = !activePopupPhoneVue" class="content__button">
           <svg xmlns="http://www.w3.org/2000/svg" width="15" height="13">
             <path
               fill="#6E8098"
@@ -70,9 +66,9 @@ export default {
           </svg>
         </button>
       </div>
+      <PopupPhoneVue v-else class="Popup__Phone__Vue"></PopupPhoneVue>
       <Popup v-show="activePopup"></Popup>
     </article>
-    <PopupPhoneVue v-show="(activePopupPhoneVue = !activePopupPhoneVue)"></PopupPhoneVue>
   </div>
 </template>
 
@@ -91,17 +87,21 @@ export default {
   border-top-left-radius: 10px;
   border-bottom-left-radius: 10px;
 }
-.content {
+/* .content {
   margin-left: 40px;
   margin-right: 35px;
-}
+} */
 .content__header {
   margin-top: 30px;
   font-size: small;
+  margin-left: 40px;
+  margin-right: 35px;
 }
 .content__main {
   margin-top: 20px;
   font-size: smaller;
+  margin-left: 40px;
+  margin-right: 35px;
 }
 .content__footer {
   margin-top: 20px;
@@ -158,11 +158,12 @@ export default {
     border-bottom-left-radius: 0;
   }
   .content {
-    margin-left: 35px;
-    margin-right: 30px;
   }
   .content__main {
     margin-right: 28px;
+  }
+  .Popup__Phone__Vue {
+    margin-top: 20px;
   }
 }
 </style>
