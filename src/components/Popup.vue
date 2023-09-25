@@ -1,9 +1,5 @@
 <script>
-export default {
-  data() {
-    return {};
-  },
-};
+export default {};
 </script>
 
 <template>
@@ -50,8 +46,7 @@ export default {
   border-radius: 10px;
 }
 .container__text {
-    font-size: small;
-    
+  font-size: small;
 }
 
 @media (max-width: 719px) {
