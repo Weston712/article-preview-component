@@ -1,7 +1,21 @@
-# Vue 3 + Vite
+# Article preview component
+___
 
-This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+![png](/public/Screenshot__1.png)
+![png](/public/Screenshot__2.png)
 
-## Recommended IDE Setup
+**1. To run on a local machine, you need:**
 
-- [VS Code](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+**Install npm dependencies:**
+
+```
+npm install
+```
+
+**2. Run in development mode:**
+
+```
+npm run dev
+```
+
+*If everything went well, the project will be launched on http://localhost:5173/*

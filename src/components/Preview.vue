@@ -190,6 +190,8 @@ export default {
     width: 100%;
     height: auto;
     display: inline-block;
+    margin-top: 15px;
+    margin-bottom: 15px;
   }
   .content__footer {
     display: none;
@@ -234,7 +236,9 @@ export default {
       padding: 0;
     }
     .popup__header {
-      color: white;
+      font-size: small;
+      letter-spacing: 4px;
+      color: #9fa7b2;
     }
     .popup__btn__phone {
       width: 30px;

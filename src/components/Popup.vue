@@ -47,6 +47,8 @@ export default {};
 }
 .container__text {
   font-size: small;
+  letter-spacing: 4px;
+  color: #9fa7b2;
 }
 
 @media (max-width: 719px) {

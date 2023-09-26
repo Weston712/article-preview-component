@@ -16,11 +16,6 @@ export default {
 <style scoped>
 @import url("https://fonts.googleapis.com/css2?family=Manrope:wght@500;700&family=Overpass:wght@700&display=swap");
 
-* {
-  margin: 0;
-  padding: 0;
-  font-family: "Manrope", sans-serif;
-}
 .main__layout {
   width: 100%;
   height: 100vh;
